@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 配置局部数据源 -->
+<Context reloadable="true">
+<Recource>
+	name="jdbc/bookstoreDB"		
+	type="javax.sql.DataSource"
+	maxActive="4"
+	maxIdle="2"
+	username="root"
+	maxWait="5000"
+	driverClasName="com.mysql.jdbc.Driver"
+	password="Win@root"
+	url="jdbc:postgesql://localhost:3306/javaweb"
+	
+</Recource>	
+</Context>

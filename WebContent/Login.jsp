@@ -7,9 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="head">		<%@include file="Head.jsp" %>	</div>
 	<div id="login" style="text-align:left ;margin:0 auto;width:250px">
-		<form action="/bookstore/LoginServlet" method="post">
+		<form action="LoginServlet.do" method="post">
 		<table>
 			<tr>
 				<td>用户名</td>

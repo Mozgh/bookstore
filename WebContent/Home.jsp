@@ -30,7 +30,7 @@
 				
 			</tr>
 			
-			</c:forEach>
+			</c:forEach>	
 		</table>
 	
 	

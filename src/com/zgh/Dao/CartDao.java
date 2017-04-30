@@ -119,11 +119,12 @@ public class CartDao {
 		return rs;
 	}
 	//查询购物车内容
-	public ArrayList<CartBean> selectCart(){
+	public ArrayList<CartBean> selectCart(String userid){
 		ArrayList<CartBean> cartbooks=new ArrayList<CartBean>();
-		sql="select * from cart";
+		sql="select * from cart where userid=?";
 		DBConnect db=new DBConnect(sql);
 		try {
+			db.st.setString(1, userid);
 			result=db.st.executeQuery();
 			while(result.next()){
 				CartBean cart=new CartBean();

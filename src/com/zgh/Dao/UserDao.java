@@ -39,7 +39,7 @@ public class UserDao {
 		try {
 			if(db!=null)
 			{
-				db.st.setString(1, "0001");
+				db.st.setString(1, id);
 				result=db.st.executeQuery();
 				while(result!=null&&result.next()){
 					user.setId(result.getString("id"));

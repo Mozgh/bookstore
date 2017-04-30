@@ -5,6 +5,8 @@ import com.zgh.Bean.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,10 +48,14 @@ public class DisplayBookServlet extends HttpServlet {
 //		out.println(bookbean.getIntro());
 //		out.println(bookbean.getPrice());
 //		out.println(bookbean.getImage());
-		
-		request.getSession().setAttribute("book", bookbean);
-		
-		response.sendRedirect("DisplayOneBook.jsp");
+
+//		request.getSession().setAttribute("book", bookbean);
+//将book实体的作用域调整为request
+		request.setAttribute("book", bookbean);
+//		response.sendRedirect("DisplayOneBook.jsp");
+//在此不用response.sendredirect转发，而使用RequestDispatcher实现请求转发，解决跳转后找不到book实体
+		RequestDispatcher rd=request.getRequestDispatcher("/DisplayOneBook.jsp");
+		rd.forward(request, response);
 	}
 
 	/**

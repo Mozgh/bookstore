@@ -9,7 +9,6 @@
 </head>
 <body>
 	<div id="head">		<%@include file="Head.jsp" %>	</div>
-	<a href="/bookstore/Cart.jsp">购物车</a>
 	<div id="BookList" style="background-color:#99e699;">
 		<table>
 			<tr>
@@ -18,8 +17,9 @@
 				<th>Intro</th>
 				<th>price</th>
 			</tr>
-			
-			<c:forEach var="book" items="${sessionScope.books }" varStatus="status">
+			<jsp:useBean id="booklist" scope="request" class="com.zgh.Bean.BookListBean" />
+				<!-- 循环控制标签中itrms必须是一个集合，而不是一个对象实体 -->
+			<c:forEach var="book" items="${booklist.getBooklist() }" varStatus="status">
 			<tr>
 				<td>
 					<a href="/bookstore/displayBook?isbn=${book.getIsbn()}">${book.getIsbn()}</a>
@@ -27,7 +27,6 @@
 				<td>${book.getName() }</td>
 				<td>${book.getIntro() }</td>
 				<td>${book.getPrice() }</td>
-				
 			</tr>
 			
 			</c:forEach>	

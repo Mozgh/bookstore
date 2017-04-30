@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,19 +57,19 @@ public class LoginServlet extends HttpServlet {
 		UserDao u=new UserDao();
 		UserBean user=new UserBean();
 		user=u.selectUser(id);
-//		out.println(user.getId());
-//		out.println(user.getPassword());
+		out.println(user.getId());
+		out.println(user.getPassword());
 //		out.println(user.getName());
 //		out.println(user.getGender());
 		
 		if(user.getPassword().equals(password)){
-			request.getSession().setAttribute("user", user);
-			ArrayList<BookBean> books=new ArrayList<BookBean>();
-			BookDao bookdao=new BookDao();
-			books=bookdao.selectBook();
-			request.getSession().setAttribute("books", books);
-			response.sendRedirect("Home.jsp");
+			request.setAttribute("user", user);
+//			ArrayList<BookBean> books=new ArrayList<BookBean>();
+//			BookDao bookdao=new BookDao();
+//			books=bookdao.selectBook();
+//			request.getSession().setAttribute("books", books);
+			RequestDispatcher rd=request.getRequestDispatcher("/Home.jsp");
+			rd.forward(request, response);
 		}
 	}
-
 }

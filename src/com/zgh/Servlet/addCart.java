@@ -49,9 +49,10 @@ public class addCart extends HttpServlet {
 		int count=Integer.parseInt(buycount);
 		
 		out.println(count);
-		BookBean book=(BookBean) request.getSession().getAttribute("book");
+		//从request作用于中获取book实体
+		BookBean book=(BookBean) request.getAttribute("book");
 		String isbn=book.getIsbn();
-		UserBean user=(UserBean) request.getSession().getAttribute("user");
+		UserBean user=(UserBean) request.getAttribute("user");
 		String id=user.getId();
 		
 		out.println(isbn);
@@ -60,8 +61,8 @@ public class addCart extends HttpServlet {
 		CartDao cartdao=new CartDao();
 		boolean rs=cartdao.addCart(id, isbn, count);
 		if(rs){
-			ArrayList<CartBean> carts=cartdao.selectCart();
-			request.getSession().setAttribute("carts", carts);
+			ArrayList<CartBean> cartlist=cartdao.selectCart(user.getId());
+			request.getSession().setAttribute("cartlist", cartlist);
 			response.sendRedirect("Cart.jsp");
 		}
 		else

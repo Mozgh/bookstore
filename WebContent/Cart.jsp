@@ -11,12 +11,13 @@
 </head>
 <body>
 	<div id="head">		<%@include file="Head.jsp" %>	</div>
-	<a href="/bookstore/Home.jsp">返回</a>
+	<a href="/bookstore/ToHome">返回</a>
+	<form action="ToCart" method="get">返回</form>
 	<div id="cart" style="background-color:#99e699;">
 		<h1>您已选择的商品</h1>
 		<table>
 			<%!BookDao bookdao=new BookDao();BookBean bookbean; %>
-			<c:forEach var="cart" items="${sessionScope.carts }" varStatus="status">
+			<c:forEach var="cart" items="${sessionScope.cartlist }" varStatus="status">
 				<tr>
 					<td><a href="/bookstore/displayBook?isbn=${cart.getBookisbn()}">${cart.getBookisbn()}</a></td>
 					<td>${cart.getBook().getName() }</td>

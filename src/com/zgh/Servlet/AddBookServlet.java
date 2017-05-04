@@ -1,5 +1,7 @@
 package com.zgh.Servlet;
 
+import com.zgh.Dao.*;
+import com.zgh.Bean.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -49,16 +51,18 @@ public class AddBookServlet extends HttpServlet {
 		int count=Integer.parseInt(request.getParameter("bookcount"));
 		Part p=request.getPart("bookimage");
 		String image="/Image/"+name+".jpg";
-		File f=new File("/bookstore/Image/"+name+".jpg");
 		if(p!=null)
 			out.println(p.getName());
-		String path=this.getServletContext().getRealPath("/");
-		
-		String h=p.getHeader("content-disposition");
-		String fname=h.substring(h.lastIndexOf("\\")+1,h.length()-1);
-		p.write(path+"\\"+fname);	
-		out.println(image);
-		out.println(f.getName());
+		//path为存储的图像的绝对路径
+		String path="E:\\study\\Java Web\\bookstore\\WebContent\\Image\\"+name+".jpg";
+		out.println(path);
+		File f=new File(path);
+		p.write(path);
+		out.println("OK");
+		BookDao bookdao=new BookDao();
+		BookBean book=new BookBean(isbn,name,intro,price,count);
+		bookdao.addBook(book);
+		out.println("add success!");
 	}
 
 }

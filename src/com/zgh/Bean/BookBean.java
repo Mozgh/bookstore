@@ -1,7 +1,7 @@
 package com.zgh.Bean;
 
 public class BookBean {
-	private String image_url="/Image/";
+	private String image_url="Image/";
 	private String isbn;
 	private String name;
 	private String intro;
@@ -16,7 +16,7 @@ public class BookBean {
 		this.intro=in;
 		this.price=p;
 		this.count=c;
-		this.image=image_url+n;
+		this.image=image_url+n+".jpg";
 	}
 	
 	public void setIsbn(String isbn){

@@ -9,7 +9,7 @@
 		<c:if test="${user!=null }" scope="session" var="userIsEmpty">
 			当前用户:${user.getName()}
 			<c:if test="${user.getName()=='admin' }">
-				<form action="management" method="post">
+				<form action="ManageServlet" method="post">
 					<input type="submit" value="管理">
 				</form>
 			</c:if>

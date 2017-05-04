@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="login" style="text-align:left ;margin:0 auto;width:250px">
-		<form action="LoginServlet.do" method="post">
+		<form action="LoginServlet" method="post">
 		<table>
 			<tr>
 				<td>用户名</td>

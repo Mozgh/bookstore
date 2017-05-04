@@ -18,7 +18,7 @@
 				<th>price</th>
 			</tr>
 			<jsp:useBean id="booklist" scope="request" class="com.zgh.Bean.BookListBean" />
-				<!-- 循环控制标签中itrms必须是一个集合，而不是一个对象实体 -->
+				<!-- 循环控制标签中items必须是一个集合，而不是一个对象实体 -->
 			<c:forEach var="book" items="${booklist.getBooklist() }" varStatus="status">
 			<tr>
 				<td>

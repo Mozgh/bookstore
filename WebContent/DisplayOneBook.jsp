@@ -11,7 +11,7 @@
 	<a href="/bookstore/Home.jsp">返回</a>
 	<div id="OneBook" style="background-color:#99e699;width: 800" >
 		<h1>${book.getName() }</h1>
-		<div id="bookimage"><img src="${book.getImage() }" alt="${book.getName() }" style="width: 200;" ></div>
+		<div id="bookimage"><img src="${book.getImage() }" alt="${book.getName() }" width="100" height="100" ></div>
 		<div id="bookinfo1">
 			<form action="addCart" method="post">
 			<table border="0" style="width:400;height:100">

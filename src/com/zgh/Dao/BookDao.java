@@ -109,6 +109,28 @@ public class BookDao{
 		db.Close();
 		return rs;
 	}
+	//修改图书信息
+	public boolean updateBook(String isbn,int count,double price,String intro){
+		boolean rs=false;
+		int row=0;
+		this.sql="update book set count=?,price=?,intro=? where isbn=?";
+		DBConnect db=new DBConnect(sql);
+		try {
+			db.st.setInt(1, count);
+			db.st.setDouble(2, price);
+			db.st.setString(3, intro);
+			db.st.setString(4, isbn);
+			row=db.st.executeUpdate();
+			if(row!=0)
+			{
+				rs=true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		db.Close();
+		return rs;
+	}
 	//删除图书
 	public boolean deleteBook(String isbn){
 		boolean rs=false;

@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 //		out.println(user.getGender());
 		
 		if(user.getPassword().equals(password)){
-			request.setAttribute("user", user);
+			request.getSession().setAttribute("user", user);
 //			ArrayList<BookBean> books=new ArrayList<BookBean>();
 //			BookDao bookdao=new BookDao();
 //			books=bookdao.selectBook();

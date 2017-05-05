@@ -22,6 +22,9 @@
 					<input type="submit" value="购物车">
 				</form>
  			</c:if>
+ 			<form action="exit" method="post">
+ 				<input type="submit" value="退出">
+ 			</form>
 			<a href="/bookstore/ToHome?userid=${user.getId() }">退出</a>
 		</c:if>
 	</div>

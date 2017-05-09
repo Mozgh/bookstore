@@ -10,7 +10,7 @@
 <body>
 	<div id="head">		<%@include file="Head.jsp" %>	</div>
 	<div id="menage">
-	<form action="addBook" method="post">
+	<form action="addBook" method="get">
 		<input type="submit" value="添加图书">
 	</form>
 	<table border="1">

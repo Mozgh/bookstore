@@ -21,7 +21,7 @@
 					<td><a href="/bookstore/displayBook?isbn=${cart.getBookisbn()}">${cart.getBookisbn()}</a></td>
 					<td>${cart.getBook().getName() }</td>
 					<td>${cart.getCount() }</td>
-					<td>${cart.getCost() }</td>
+					<td>${cart.getCostString() }</td>
 					
 			</c:forEach>
 		</table>

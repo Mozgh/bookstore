@@ -14,6 +14,7 @@
 		<div id="bookimage"><img src="${book.getImage() }" alt="${book.getName() }" width="100" height="100" ></div>
 		<div id="bookinfo1">
 			<form action="addCart" method="post">
+			<input type="hidden" name="bookisbn" value="${book.getIsbn() }">
 			<table border="0" style="width:400;height:100">
 				<tr>
 					<td>价格</td>

@@ -34,7 +34,7 @@ public class AddBookServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.sendRedirect("AddBook.jsp");
 	}
 
 	/**
@@ -63,6 +63,7 @@ public class AddBookServlet extends HttpServlet {
 		BookBean book=new BookBean(isbn,name,intro,price,count);
 		bookdao.addBook(book);
 		out.println("add success!");
+		response.sendRedirect("/bookstore/Management.jsp");
 	}
 
 }

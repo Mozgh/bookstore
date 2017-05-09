@@ -47,16 +47,17 @@ public class addCart extends HttpServlet {
 		
 		String buycount=request.getParameter("buycount");
 		int count=Integer.parseInt(buycount);
-		
+		String isbn=request.getParameter("bookisbn");
 		out.println(count);
 		//从request作用于中获取book实体
-		BookBean book=(BookBean) request.getAttribute("book");
-		String isbn=book.getIsbn();
-		UserBean user=(UserBean) request.getAttribute("user");
+//		BookBean book=(BookBean) request.getAttribute("book");
+//		String isbn=book.getIsbn();
+		UserBean user=(UserBean) request.getSession().getAttribute("user");
 		String id=user.getId();
-		
+//		
+		BookDao bookdao=new BookDao();
+		BookBean book=bookdao.selectBook(isbn);
 		out.println(isbn);
-		out.println(id);
 		
 		CartDao cartdao=new CartDao();
 		boolean rs=cartdao.addCart(id, isbn, count);

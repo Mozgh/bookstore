@@ -54,20 +54,7 @@ public class UserSessionListener implements HttpSessionListener, HttpSessionAttr
      * @see HttpSessionBindingListener#valueBound(HttpSessionBindingEvent)
      */
     public void valueBound(HttpSessionBindingEvent se)  { 
-//    	HttpSession session=se.getSession();
-//    	context=session.getServletContext();
-//    	ArrayList<HttpSession> sessionList=(ArrayList<HttpSession>)context.getAttribute("sessionList");
-//    	if(sessionList==null)
-//    	{
-//    		sessionList=new ArrayList<HttpSession>();
-//    		context.setAttribute("sessionList", sessionList);
-//    		
-//    	}
-//    	else{
-//    		sessionList.add(session);
-//    	}
-//    	count++;
-//    	se.getSession().setAttribute("count", count);
+
     }
 
 	/**
@@ -94,18 +81,7 @@ public class UserSessionListener implements HttpSessionListener, HttpSessionAttr
      * @see HttpSessionAttributeListener#attributeAdded(HttpSessionBindingEvent)
      */
     public void attributeAdded(HttpSessionBindingEvent se)  { 
-//    	HttpSession session=se.getSession();
-//    	context=session.getServletContext();
-//    	ArrayList<HttpSession> sessionList=(ArrayList<HttpSession>)context.getAttribute("sessionList");
-//    	if(sessionList==null)
-//    	{
-//    		sessionList=new ArrayList<HttpSession>();
-//    		context.setAttribute("sessionList", sessionList);
-//    		
-//    	}
-//    	else{
-//    		sessionList.add(session);
-//    	}
+
     	count++;
     	se.getSession().setAttribute("count", count);
     }
@@ -122,20 +98,7 @@ public class UserSessionListener implements HttpSessionListener, HttpSessionAttr
      * @see HttpSessionAttributeListener#attributeReplaced(HttpSessionBindingEvent)
      */
     public void attributeReplaced(HttpSessionBindingEvent se)  { 
-//    	HttpSession session=se.getSession();
-//    	context=session.getServletContext();
-//    	ArrayList<HttpSession> sessionList=(ArrayList<HttpSession>)context.getAttribute("sessionList");
-//    	if(sessionList==null)
-//    	{
-//    		sessionList=new ArrayList<HttpSession>();
-//    		context.setAttribute("sessionList", sessionList);
-//    		
-//    	}
-//    	else{
-//    		sessionList.add(session);
-//    	}
-//    	count++;
-//    	se.getSession().setAttribute("count", count);
+
     }
 
 	/**

@@ -43,5 +43,6 @@ public class CartBean {
 	public BookBean getBook()			{return this.book;}
 	public int getCount()			{return this.count;}
 	public double getCost()			{return this.cost;}
+	public String getCostString()			{return String.valueOf(this.cost);}
 	
 }

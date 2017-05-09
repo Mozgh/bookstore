@@ -16,7 +16,6 @@
 			<c:if test="${user.getName()!='admin' }">
 				用户名：${user.getName() }
 				ID:${user.getId() }
-				<a href="/bookstore/ToCart">购物车</a>
 				<form action="ToCart" method="get">
 					<input type="hidden" name="user" value="${user.getId()}">
 					<input type="submit" value="购物车">
@@ -25,6 +24,5 @@
  			<form action="exit" method="post">
  				<input type="submit" value="退出">
  			</form>
-			<a href="/bookstore/ToHome?userid=${user.getId() }">退出</a>
 		</c:if>
 	</div>

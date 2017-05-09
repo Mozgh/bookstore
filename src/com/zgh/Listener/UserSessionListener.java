@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSessionListener;
 @WebListener
 public class UserSessionListener implements HttpSessionListener, HttpSessionAttributeListener, HttpSessionActivationListener, HttpSessionBindingListener {
 	private ServletContext context=null;
-	private int count;
+	private int count=0;
 	public int getCount(){
 		return this.count;
 	}
@@ -46,15 +46,28 @@ public class UserSessionListener implements HttpSessionListener, HttpSessionAttr
     	else{
     		sessionList.add(session);
     	}
-    	count++;
+    	//count++;
     	context.log("创建一个会话:"+session.getId());
     }
 
 	/**
      * @see HttpSessionBindingListener#valueBound(HttpSessionBindingEvent)
      */
-    public void valueBound(HttpSessionBindingEvent arg0)  { 
-         // TODO Auto-generated method stub
+    public void valueBound(HttpSessionBindingEvent se)  { 
+//    	HttpSession session=se.getSession();
+//    	context=session.getServletContext();
+//    	ArrayList<HttpSession> sessionList=(ArrayList<HttpSession>)context.getAttribute("sessionList");
+//    	if(sessionList==null)
+//    	{
+//    		sessionList=new ArrayList<HttpSession>();
+//    		context.setAttribute("sessionList", sessionList);
+//    		
+//    	}
+//    	else{
+//    		sessionList.add(session);
+//    	}
+//    	count++;
+//    	se.getSession().setAttribute("count", count);
     }
 
 	/**
@@ -80,22 +93,49 @@ public class UserSessionListener implements HttpSessionListener, HttpSessionAttr
 	/**
      * @see HttpSessionAttributeListener#attributeAdded(HttpSessionBindingEvent)
      */
-    public void attributeAdded(HttpSessionBindingEvent arg0)  { 
-         // TODO Auto-generated method stub
+    public void attributeAdded(HttpSessionBindingEvent se)  { 
+//    	HttpSession session=se.getSession();
+//    	context=session.getServletContext();
+//    	ArrayList<HttpSession> sessionList=(ArrayList<HttpSession>)context.getAttribute("sessionList");
+//    	if(sessionList==null)
+//    	{
+//    		sessionList=new ArrayList<HttpSession>();
+//    		context.setAttribute("sessionList", sessionList);
+//    		
+//    	}
+//    	else{
+//    		sessionList.add(session);
+//    	}
+    	count++;
+    	se.getSession().setAttribute("count", count);
     }
 
 	/**
      * @see HttpSessionAttributeListener#attributeRemoved(HttpSessionBindingEvent)
      */
     public void attributeRemoved(HttpSessionBindingEvent arg0)  { 
-         // TODO Auto-generated method stub
+         count--;
+         arg0.getSession().setAttribute("count", count);
     }
 
 	/**
      * @see HttpSessionAttributeListener#attributeReplaced(HttpSessionBindingEvent)
      */
-    public void attributeReplaced(HttpSessionBindingEvent arg0)  { 
-         // TODO Auto-generated method stub
+    public void attributeReplaced(HttpSessionBindingEvent se)  { 
+//    	HttpSession session=se.getSession();
+//    	context=session.getServletContext();
+//    	ArrayList<HttpSession> sessionList=(ArrayList<HttpSession>)context.getAttribute("sessionList");
+//    	if(sessionList==null)
+//    	{
+//    		sessionList=new ArrayList<HttpSession>();
+//    		context.setAttribute("sessionList", sessionList);
+//    		
+//    	}
+//    	else{
+//    		sessionList.add(session);
+//    	}
+//    	count++;
+//    	se.getSession().setAttribute("count", count);
     }
 
 	/**

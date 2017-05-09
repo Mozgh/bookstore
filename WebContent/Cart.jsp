@@ -12,7 +12,6 @@
 <body>
 	<div id="head">		<%@include file="Head.jsp" %>	</div>
 	<a href="/bookstore/ToHome">返回</a>
-	<form action="ToCart" method="get">返回</form>
 	<div id="cart" style="background-color:#99e699;">
 		<h1>您已选择的商品</h1>
 		<table>
